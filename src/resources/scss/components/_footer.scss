@@ -1,0 +1,109 @@
+/* ===== FOOTER ===== */
+#footer {
+  background: linear-gradient(180deg, #012a4a 0%, #013a63 100%);
+  color: #ffffff;
+  font-family: "Segoe UI", sans-serif;
+  padding: 80px 0 30px;
+  position: relative; /* Bắt buộc phải có để z-index hoạt động */
+  z-index: 999;
+}
+
+/* Layout chia 2 cột */
+.footer-wrapper .footer-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-col {
+  flex: 1 1 45%;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== TEXT & LINKS ===== */
+.footer_title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  color: #f7c815;
+}
+
+.footer-inner p {
+  line-height: 1.6;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.footer-inner a {
+  color: #f7c815;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.footer-inner a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* ===== FORM ===== */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.register-form input {
+  padding: 12px 15px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  font-size: 15px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.register-form input::placeholder {
+  color: #666;
+}
+
+.register-form button {
+  background: linear-gradient(90deg, #004b8e 0%, #0077c8 100%);
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+.register-form button:hover {
+  background: linear-gradient(90deg, #0060b6 0%, #00aaff 100%);
+  transform: translateY(-1px);
+}
+
+/* ===== FOOTER BOTTOM ===== */
+.absolute-footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 14px;
+  color: #dddddd;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 20px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .footer-col {
+    flex: 1 1 100%;
+  }
+}

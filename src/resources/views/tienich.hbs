@@ -1,0 +1,116 @@
+<section class="design-section">
+    <div class="thietke-container">
+        <div class="thietke-header">
+            <div class="thietke-title">
+                <h2>Thiết Kế Căn Hộ</h2>
+            </div>
+            <div class="design-info">
+                    <p><strong>Có 4 loại căn hộ điển hình:</strong></p>
+                    <ul>
+                        <li>Căn 1 ngủ và 1 ngủ + có 37 căn, diện tích 39m2 - 48m2</li>
+                        <li>Căn 2 ngủ có 113 căn, diện tích 70m2 - 76m2</li>
+                        <li>Căn 3 ngủ có 133 căn, diện tích 102m2 - 110m2</li>
+                        <li>Penthouse, có 6 căn, diện tích 172m2 - 350m2</li>
+                    </ul>
+                </div>
+        </div>
+
+        <div class="thietke-filter-buttons">
+            <button class="thietke-btn thietke-btn-solid active" data-target="gallery-penthouse">Penthouse</button>
+            <button class="thietke-btn thietke-btn-solid" data-target="gallery-2ngu">Căn 2 Ngủ</button>
+            <button class="thietke-btn thietke-btn-solid" data-target="gallery-3ngu">Căn 3 Ngủ</button>
+        </div>
+
+        <div class="thietke-galleries-wrapper">
+
+            <div id="gallery-penthouse" class="thietke-gallery-grid thietke-gallery-active">
+                <div class="thietke-gallery-item">
+                    <img src="img/tienich/penthouse/1.png" alt="Penthouse 1">
+                </div>
+                <div class="thietke-gallery-item">
+                    <img src="img/tienich/penthouse/2.jpg" alt="Penthouse 1">
+                </div>
+                <div class="thietke-gallery-item">
+                    <img src="img/tienich/penthouse/3.jpg" alt="Penthouse 1">
+                </div>
+                <div class="thietke-gallery-item">
+                    <img src="img/tienich/penthouse/4.jpg" alt="Penthouse 1">
+                </div>
+                <div class="thietke-gallery-item">
+                    <img src="img/tienich/penthouse/5.jpg" alt="Penthouse 1">
+                </div>
+                <div class="thietke-gallery-item">
+                    <img src="img/tienich/penthouse/6.png" alt="Penthouse 1">
+                </div>
+            </div>
+
+            <div id="gallery-2ngu" class="thietke-gallery-grid">
+                <div class="thietke-gallery-item">
+                    <img src="img/tienich/can2ngu/1.jpg" alt="Căn 2 ngủ 1">
+                </div>
+                <div class="thietke-gallery-item">
+                    <img src="img/tienich/can2ngu/2.jpg" alt="Căn 2 ngủ 1">
+                </div>
+                <div class="thietke-gallery-item">
+                    <img src="img/tienich/can2ngu/3.jpg" alt="Căn 2 ngủ 1">
+                </div>
+                <div class="thietke-gallery-item">
+                    <img src="img/tienich/can2ngu/4.jpg" alt="Căn 2 ngủ 1">
+                </div>
+        
+            </div>
+
+            <div id="gallery-3ngu" class="thietke-gallery-grid">
+                <div class="thietke-gallery-item">
+                    <img src="img/tienich/can3ngu/1.jpg" alt="Căn 3 ngủ 1">
+                </div>
+                <div class="thietke-gallery-item">
+                    <img src="img/tienich/can3ngu/2.jpg" alt="Căn 3 ngủ 1">
+                </div>
+                <div class="thietke-gallery-item">
+                    <img src="img/tienich/can3ngu/3.jpg" alt="Căn 3 ngủ 1">
+                </div>
+                <div class="thietke-gallery-item">
+                    <img src="img/tienich/can3ngu/4.jpg" alt="Căn 3 ngủ 1">
+                </div>
+
+            </div>
+            
+        </div> </div>
+</section>
+ <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    
+    // Lấy tất cả các nút filter
+    const filterButtons = document.querySelectorAll('.thietke-filter-buttons .thietke-btn');
+    
+    // Lấy tất cả các gallery
+    const galleries = document.querySelectorAll('.thietke-galleries-wrapper .thietke-gallery-grid');
+
+    // Thêm sự kiện click cho mỗi nút
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            
+            // 1. Lấy ID của gallery mục tiêu từ attribute 'data-target'
+            const targetId = this.getAttribute('data-target');
+            const targetGallery = document.getElementById(targetId);
+
+            // 2. Xóa class 'active' khỏi tất cả các nút
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // 3. Thêm class 'active' cho nút vừa được bấm
+            this.classList.add('active');
+            
+            // 4. Ẩn tất cả các gallery
+            galleries.forEach(gallery => {
+                gallery.classList.remove('thietke-gallery-active');
+            });
+            
+            // 5. Hiển thị gallery mục tiêu
+            if (targetGallery) {
+                targetGallery.classList.add('thietke-gallery-active');
+            }
+        });
+    });
+});
+ </script>

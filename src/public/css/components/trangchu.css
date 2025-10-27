@@ -1,0 +1,210 @@
+@charset "UTF-8";
+/* ==== ĐỊNH DẠNG TỔNG QUAN (NỀN KEM & CHỮ XANH) ==== */
+/* 1. Nền chung cho cả Section */
+.overview-section {
+  /* Màu nền kem nhạt duy nhất như ảnh gốc */
+  background-color: #fdfbf7;
+  padding-top: 160px;
+  padding-bottom: 60px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* 2. Tiêu đề chính (VCI Eden Park...) */
+.overview-section .section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  /* Màu tiêu đề phù hợp: Xanh đen đậm */
+  color: #2c3e50;
+  margin-bottom: 40px;
+  font-family: "Playfair Display", serif;
+}
+
+/* 3. Khối văn bản giới thiệu (.intro-content) */
+.overview-section .intro-content {
+  /* Bỏ hết nền trắng, shadow, padding riêng */
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+  margin-bottom: 60px; /* Khoảng cách với lưới icon */
+}
+
+/* 3.1. Tiêu đề phụ (H3) */
+.overview-section .intro-content h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  /* Màu xanh đen đậm, đồng bộ với tiêu đề chính */
+  color: #2c3e50;
+  margin-top: 35px;
+  margin-bottom: 15px;
+  font-family: "Playfair Display", serif;
+}
+
+/* 3.2. Đoạn văn (P) và Danh sách (LI) - CHỮ MÀU XANH */
+.overview-section .intro-content p,
+.overview-section .intro-content li {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  /* CHỮ MÀU XANH theo yêu cầu của bạn */
+  color: #004a99;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}
+
+/* Chữ in đậm sẽ có màu xanh đậm hơn 1 chút */
+.overview-section .intro-content strong {
+  color: #003366;
+  font-weight: 600;
+}
+
+/* 3.3. Danh sách (UL/LI) */
+.overview-section .intro-content ul {
+  list-style-type: none;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.overview-section .intro-content li {
+  margin-bottom: 12px;
+  position: relative;
+}
+
+/* 3.4. Dấu tick tùy chỉnh (Giữ màu cam thương hiệu) */
+.overview-section .intro-content li::before {
+  content: "✓";
+  color: #e67e22;
+  font-weight: bold;
+  position: absolute;
+  left: -25px;
+  top: 3px;
+  font-family: "Arial", sans-serif;
+}
+
+/* 4. Lưới Tiện Ích (.features-grid) */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* 4.1. Từng mục tiện ích (.feature-item) */
+.feature-item {
+  /* Bỏ hết nền trắng và shadow */
+  text-align: center;
+  padding: 20px;
+}
+
+/* 4.2. Icon */
+.feature-icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 20px;
+  object-fit: contain;
+}
+
+/* 4.3. Chữ bên dưới icon */
+.feature-item p {
+  font-size: 1rem;
+  /* Cho màu chữ đồng bộ với các tiêu đề */
+  color: #2c3e50;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+}
+
+/* ==== RESPONSIVE (Không thay đổi) ==== */
+@media (max-width: 992px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .overview-section .section-title {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 576px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .overview-section .intro-content h3 {
+    font-size: 1.4rem;
+  }
+  .overview-section .intro-content p,
+  .overview-section .intro-content li {
+    font-size: 1rem;
+  }
+}
+/* ==== ĐỊNH DẠNG SLIDER TIỆN ÍCH ==== */
+.features-slider-section {
+  /* Nền kem #fdfbf7 này sẽ khớp với nền .overview-section của bạn */
+  background-color: #fdfbf7;
+  padding: 0 0 80px 0; /* Chỉ cần padding ở dưới */
+}
+
+/* Thẻ (card) tiện ích */
+.feature-card {
+  /* Đây là màu gradient xanh-tím giống trong ảnh
+    Bạn có thể đổi sang màu thương hiệu của mình nếu muốn 
+  */
+  background: linear-gradient(135deg, #485acb 0%, #2a7de2 100%);
+  border-radius: 20px;
+  padding: 30px 25px;
+  color: #ffffff;
+  height: 100%; /* Giúp các card cao bằng nhau */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Icon (biểu tượng) */
+.feature-card-icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 20px;
+  object-fit: contain;
+}
+
+/* Dấu gạch ngang */
+.feature-card hr {
+  border: 0;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.3);
+  margin: 20px 0;
+}
+
+/* Tiêu đề (TIẾN ĐỘ...) */
+.feature-card h4 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+/* Văn bản mô tả */
+.feature-card p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0;
+}
+
+/* Định dạng cho các dấu chấm pagination của Swiper 
+  (Đổi màu cam #e67e22 giống thương hiệu của bạn)
+*/
+.features-slider-section .swiper-pagination {
+  position: static; /* Đẩy ra khỏi slider */
+  margin-top: 30px; /* Cách slider 30px */
+}
+
+:root {
+  --swiper-pagination-color: #e67e22; /* Màu cam cho chấm active */
+  --swiper-pagination-bullet-inactive-color: #d1d1d1; /* Màu xám cho chấm inactive */
+  --swiper-pagination-bullet-size: 10px;
+  --swiper-pagination-bullet-horizontal-gap: 6px;
+}
+
+/*# sourceMappingURL=trangchu.css.map */

@@ -1,0 +1,1333 @@
+@charset "UTF-8";
+/* ==== RESET ==== */
+/* ==== HEADER ==== */
+.header {
+  height: 100vh;
+  background: url("../img/2nen.jpg") center/cover no-repeat;
+  filter: brightness(1.25); /* 1.0 là gốc, tăng lên sáng hơn */
+  z-index: 999;
+}
+
+/* lớp phủ nhẹ giúp chữ trắng nổi bật */
+.header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.3));
+  z-index: 0;
+}
+
+/* ==== NAVBAR ==== */
+.custom-navbar {
+  background: transparent !important;
+  transition: all 0.4s ease;
+  padding: 18px 80px;
+  position: fixed; /* 👈 cố định trên cùng */
+  top: 0; /* 👈 canh sát đỉnh */
+  left: 0;
+  width: 100%; /* 👈 chiếm toàn chiều ngang */
+  z-index: 1000; /* 👈 nổi trên ảnh nền */
+}
+
+/* tạo đường kẻ mờ dưới hàng menu */
+.custom-navbar::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3); /* trắng mờ nhẹ */
+}
+
+/* chữ thương hiệu */
+.custom-navbar .navbar-brand {
+  color: #fff !important;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
+}
+
+/* link menu */
+.custom-navbar .nav-link {
+  position: relative;
+  color: #fff !important;
+  font-weight: 700;
+  margin-left: 22px;
+  padding-bottom: 5px;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+}
+
+/* hover nổi bật */
+.custom-navbar .nav-link:hover {
+  color: #5f58ee !important;
+  transform: translateY(-2px);
+  text-shadow: 0 0 8px rgba(255, 126, 95, 0.8), 0 0 16px rgba(255, 126, 95, 0.4);
+}
+
+/* Khi cuộn xuống */
+.navbar.scrolled {
+  background: linear-gradient(to right, #fbd1b0, #f8b7a0, #eaa5a4) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.navbar.scrolled .navbar-brand,
+.navbar.scrolled .nav-link {
+  color: #222 !important;
+}
+
+.navbar.scrolled .nav-link:hover {
+  color: #e67e22 !important;
+}
+
+/* ==== RESPONSIVE ==== */
+@media (max-width: 992px) {
+  .custom-navbar {
+    padding: 10px 30px;
+  }
+  .navbar-collapse {
+    background: rgba(0, 0, 0, 0.85);
+    border-radius: 10px;
+    padding: 20px;
+  }
+  .nav-link {
+    color: #fff !important;
+  }
+}
+/* ================================================
+   SỬA LỖI CHO HEADER Ở CÁC TRANG CON
+================================================ */
+/* Mục tiêu: Tắt ảnh nền, chiều cao 100vh, và filter 
+  khi header có class .no-background (tức là ở trang Vị Trí)
+*/
+.header.no-background {
+  height: auto; /* Quan trọng: Reset chiều cao 100vh về tự động */
+  background: none; /* Quan trọng: Tắt ảnh nền */
+  filter: none; /* Tắt hiệu ứng filter */
+}
+
+/* Tắt luôn lớp phủ màu đen (::before) */
+.header.no-background::before {
+  display: none;
+}
+
+/* Khi ở trang con, .header sẽ không có ảnh nền, 
+  nhưng .navbar bên trong nó (nhờ class .scrolled) 
+  sẽ có nền gradient, đúng như ý bạn muốn.
+*/
+/* ===== FOOTER ===== */
+#footer {
+  background: linear-gradient(180deg, #012a4a 0%, #013a63 100%);
+  color: #ffffff;
+  font-family: "Segoe UI", sans-serif;
+  padding: 80px 0 30px;
+  position: relative; /* Bắt buộc phải có để z-index hoạt động */
+  z-index: 999;
+}
+
+/* Layout chia 2 cột */
+.footer-wrapper .footer-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-col {
+  flex: 1 1 45%;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== TEXT & LINKS ===== */
+.footer_title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  color: #f7c815;
+}
+
+.footer-inner p {
+  line-height: 1.6;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.footer-inner a {
+  color: #f7c815;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-inner a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* ===== FORM ===== */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.register-form input {
+  padding: 12px 15px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  font-size: 15px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.register-form input::placeholder {
+  color: #666;
+}
+
+.register-form button {
+  background: linear-gradient(90deg, #004b8e 0%, #0077c8 100%);
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.register-form button:hover {
+  background: linear-gradient(90deg, #0060b6 0%, #00aaff 100%);
+  transform: translateY(-1px);
+}
+
+/* ===== FOOTER BOTTOM ===== */
+.absolute-footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 14px;
+  color: #dddddd;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 20px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .footer-col {
+    flex: 1 1 100%;
+  }
+}
+/* =========================================== */
+/* FIX: TẠO KHÔNG GIAN CHO FORM BÊN PHẢI   */
+/* =========================================== */
+/* ==== ĐỊNH DẠNG TỔNG QUAN (NỀN KEM & CHỮ XANH) ==== */
+/* 1. Nền chung cho cả Section */
+.overview-section {
+  /* Màu nền kem nhạt duy nhất như ảnh gốc */
+  background-color: #fdfbf7;
+  padding-top: 160px;
+  padding-bottom: 60px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* 2. Tiêu đề chính (VCI Eden Park...) */
+.overview-section .section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  /* Màu tiêu đề phù hợp: Xanh đen đậm */
+  color: #2c3e50;
+  margin-bottom: 40px;
+  font-family: "Playfair Display", serif;
+}
+
+/* 3. Khối văn bản giới thiệu (.intro-content) */
+.overview-section .intro-content {
+  /* Bỏ hết nền trắng, shadow, padding riêng */
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+  margin-bottom: 60px; /* Khoảng cách với lưới icon */
+}
+
+/* 3.1. Tiêu đề phụ (H3) */
+.overview-section .intro-content h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  /* Màu xanh đen đậm, đồng bộ với tiêu đề chính */
+  color: #2c3e50;
+  margin-top: 35px;
+  margin-bottom: 15px;
+  font-family: "Playfair Display", serif;
+}
+
+/* 3.2. Đoạn văn (P) và Danh sách (LI) - CHỮ MÀU XANH */
+.overview-section .intro-content p,
+.overview-section .intro-content li {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  /* CHỮ MÀU XANH theo yêu cầu của bạn */
+  color: #004a99;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}
+
+/* Chữ in đậm sẽ có màu xanh đậm hơn 1 chút */
+.overview-section .intro-content strong {
+  color: #003366;
+  font-weight: 600;
+}
+
+/* 3.3. Danh sách (UL/LI) */
+.overview-section .intro-content ul {
+  list-style-type: none;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.overview-section .intro-content li {
+  margin-bottom: 12px;
+  position: relative;
+}
+
+/* 3.4. Dấu tick tùy chỉnh (Giữ màu cam thương hiệu) */
+.overview-section .intro-content li::before {
+  content: "✓";
+  color: #e67e22;
+  font-weight: bold;
+  position: absolute;
+  left: -25px;
+  top: 3px;
+  font-family: "Arial", sans-serif;
+}
+
+/* 4. Lưới Tiện Ích (.features-grid) */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* 4.1. Từng mục tiện ích (.feature-item) */
+.feature-item {
+  /* Bỏ hết nền trắng và shadow */
+  text-align: center;
+  padding: 20px;
+}
+
+/* 4.2. Icon */
+.feature-icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 20px;
+  object-fit: contain;
+}
+
+/* 4.3. Chữ bên dưới icon */
+.feature-item p {
+  font-size: 1rem;
+  /* Cho màu chữ đồng bộ với các tiêu đề */
+  color: #2c3e50;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+}
+
+/* ==== RESPONSIVE (Không thay đổi) ==== */
+@media (max-width: 992px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .overview-section .section-title {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 576px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .overview-section .intro-content h3 {
+    font-size: 1.4rem;
+  }
+  .overview-section .intro-content p,
+  .overview-section .intro-content li {
+    font-size: 1rem;
+  }
+}
+/* ==== ĐỊNH DẠNG SLIDER TIỆN ÍCH ==== */
+.features-slider-section {
+  /* Nền kem #fdfbf7 này sẽ khớp với nền .overview-section của bạn */
+  background-color: #fdfbf7;
+  padding: 0 0 80px 0; /* Chỉ cần padding ở dưới */
+}
+
+/* Thẻ (card) tiện ích */
+.feature-card {
+  /* Đây là màu gradient xanh-tím giống trong ảnh
+    Bạn có thể đổi sang màu thương hiệu của mình nếu muốn 
+  */
+  background: linear-gradient(135deg, #485acb 0%, #2a7de2 100%);
+  border-radius: 20px;
+  padding: 30px 25px;
+  color: #ffffff;
+  height: 100%; /* Giúp các card cao bằng nhau */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Icon (biểu tượng) */
+.feature-card-icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 20px;
+  object-fit: contain;
+}
+
+/* Dấu gạch ngang */
+.feature-card hr {
+  border: 0;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.3);
+  margin: 20px 0;
+}
+
+/* Tiêu đề (TIẾN ĐỘ...) */
+.feature-card h4 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+/* Văn bản mô tả */
+.feature-card p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0;
+}
+
+/* Định dạng cho các dấu chấm pagination của Swiper 
+  (Đổi màu cam #e67e22 giống thương hiệu của bạn)
+*/
+.features-slider-section .swiper-pagination {
+  position: static; /* Đẩy ra khỏi slider */
+  margin-top: 30px; /* Cách slider 30px */
+}
+
+:root {
+  --swiper-pagination-color: #e67e22; /* Màu cam cho chấm active */
+  --swiper-pagination-bullet-inactive-color: #d1d1d1; /* Màu xám cho chấm inactive */
+  --swiper-pagination-bullet-size: 10px;
+  --swiper-pagination-bullet-horizontal-gap: 6px;
+}
+
+/* ---- CSS CHO PHẦN VỊ TRÍ (BỐ CỤC DỌC) ---- */
+/* 1. Container chính (Tạo khoảng trắng 2 bên) */
+.location-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  /* Giữ padding-top để không bị header che */
+  padding: 110px 15px 60px 15px;
+  /* XÓA BỎ: display: flex, align-items, gap */
+  /* Các khối con sẽ tự động xếp dọc */
+}
+
+/* 2. Khối nội dung BÊN TRÊN (trước đây là bên trái) */
+.content-left {
+  /* XÓA BỎ: flex: 1 */
+  /* CĂN GIỮA KHỐI CHỮ CHO ĐẸP */
+  text-align: center; /* Căn giữa các tiêu đề và đoạn văn */
+  /* Giới hạn độ rộng của chữ để dễ đọc */
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  /* Tạo khoảng cách với ảnh bên dưới */
+  margin-bottom: 50px;
+}
+
+/* 3. Khối hình ảnh BÊN DƯỚI (trước đây là bên phải) */
+.image-right {
+  /* XÓA BỎ: flex: 1 */
+  /* Không cần CSS gì cả, nó sẽ tự rộng 100% */
+}
+
+/* 4. CSS cho ảnh (Giữ nguyên hiệu ứng mờ viền) */
+.map-image {
+  width: 100%; /* Ảnh sẽ rộng 100% (của 1200px) */
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  /* Giữ nguyên hiệu ứng mờ viền (dùng bản tương thích tốt) */
+  -webkit-mask-image: radial-gradient(circle at center, black 70%, transparent 100%);
+  mask-image: radial-gradient(circle at center, black 70%, transparent 100%);
+}
+
+/* 5. CSS cho phần chữ (Giữ nguyên) */
+.heading-diamond {
+  font-size: 38px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.heading-subtitle {
+  font-size: 20px;
+  font-style: italic;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+.description {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #666;
+  text-align: justify; /* Căn đều 2 lề cho đoạn văn dài sẽ đẹp hơn */
+  /* Hoặc bạn có thể để 'text-align: center' nếu thích */
+}
+
+/* === 6. CHO ĐIỆN THOẠI (Responsive) === */
+@media (max-width: 768px) {
+  .location-section {
+    padding-top: 100px; /* Giảm padding trên mobile */
+  }
+  .content-left {
+    margin-bottom: 30px; /* Giảm khoảng cách giữa chữ và ảnh */
+  }
+  .heading-diamond {
+    font-size: 30px;
+  }
+  .heading-subtitle {
+    font-size: 18px;
+  }
+}
+/* =========================================== */
+/* CSS TRANG MẶT BẰNG (ĐÃ SCOPED)       */
+/* =========================================== */
+/* 1. Phần tử cha: Quyết định nền trắng và padding */
+.matbang-page-content {
+  background-color: #ffffff; /* <--- NỀN TRẮNG NẰM Ở ĐÂY */
+  color: #333;
+  padding: 200px 0 60px 0 !important; /* Padding trên/dưới */
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* 2. Container: Giờ chỉ lo căn lề */
+/* (Nó sẽ không đè lên container chung của bạn nữa) */
+.matbang-page-content .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* --- PHẦN 1: TIÊU ĐỀ VÀ MÔ TẢ --- */
+.matbang-page-content .project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.matbang-page-content .title-section {
+  flex-basis: 30%;
+  min-width: 250px;
+  font-family: "Times New Roman", Times, serif;
+  color: #a12a2a; /* Màu đỏ sậm */
+}
+
+.matbang-page-content .title-section h1 {
+  font-size: 48px;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.matbang-page-content .title-section h2 {
+  font-size: 32px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.matbang-page-content .description-section {
+  flex-basis: 65%;
+  min-width: 300px;
+  font-size: 16px;
+  color: #222;
+}
+
+.matbang-page-content .description-section p {
+  margin-top: 0;
+}
+
+/* --- PHẦN 2: CÁC NÚT BẤM (TABS) --- */
+.matbang-page-content .tabs-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.matbang-page-content .tab-button {
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  background-color: #2E5A8A; /* Màu xanh dương */
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+.matbang-page-content .tab-button:hover {
+  opacity: 0.9;
+}
+
+.matbang-page-content .tab-button.active {
+  background-color: #F37021; /* Màu cam */
+}
+
+/* --- PHẦN 3: NỘI DUNG TAB (ẢNH) --- */
+.matbang-page-content .floor-plan-image {
+  display: none; /* Ẩn tất cả mặc định */
+  width: 100%;
+}
+
+.matbang-page-content .floor-plan-image.active {
+  display: block; /* Chỉ hiện tab có class active */
+}
+
+.matbang-page-content .floor-plan-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid #eee;
+}
+
+/* Tiêu đề cho tab tiện ích (nếu có) */
+.matbang-page-content .floor-plan-image h2 {
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+/* Lưới ảnh 2x2 cho tab tiện ích */
+.matbang-page-content .image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 0 10px;
+}
+
+.matbang-page-content .image-grid img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* --- PHẦN 4: RESPONSIVE --- */
+@media (max-width: 768px) {
+  .matbang-page-content .project-header {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .matbang-page-content .title-section,
+  .matbang-page-content .description-section {
+    flex-basis: 100%;
+  }
+  .matbang-page-content .tabs-section {
+    flex-direction: column;
+  }
+  .matbang-page-content .tab-button {
+    width: 100%;
+    text-align: center;
+  }
+}
+@media (max-width: 600px) {
+  .matbang-page-content .image-grid {
+    grid-template-columns: 1fr; /* 1 cột trên điện thoại */
+    gap: 15px;
+  }
+}
+/* =========================================== */
+/* SECTION THIẾT KẾ (ĐÃ SỬA LỖI)         */
+/* =========================================== */
+.design-section {
+  padding: 60px 0;
+  margin-top: 80px;
+  /* === SỬA LỖI 1: Thêm lại MÀU SẮC === */
+  /* Thêm lại màu nền xanh đậm và màu chữ trắng */
+  background-color: #1a2b40;
+  color: #ffffff;
+  /* === HẾT SỬA LỖI 1 === */
+}
+
+/* Container riêng của thiết kế (Nếu bạn dùng container chung thì không cần) */
+.thietke-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.thietke-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 40px;
+}
+
+.thietke-title h2 {
+  font-family: "Merriweather", "Times New Roman", Times, serif;
+  font-size: 48px;
+  margin: 0;
+  flex-basis: 40%;
+  color: #ffffff; /* Đảm bảo chữ tiêu đề là trắng */
+}
+
+.thietke-info {
+  flex-basis: 55%;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #ffffff; /* Đảm bảo chữ thông tin là trắng */
+}
+
+.thietke-info ul {
+  padding-left: 20px;
+  list-style: disc;
+}
+
+.thietke-filter-buttons {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Nút bấm riêng của Thiết kế */
+.thietke-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  margin: 10px 8px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* === SỬA LỖI 2: Tạo "KHUNG" cho nút === */
+/* Đây chính là style tạo ra cái khung/nền trắng cho nút */
+.thietke-btn-solid {
+  background-color: #ffffff; /* Nền trắng (cái khung) */
+  color: #333333; /* Chữ đen */
+  border: 1px solid #ffffff;
+}
+
+/* === HẾT SỬA LỖI 2 === */
+.thietke-btn-solid:hover {
+  background-color: #F37021; /* <-- Màu cam */
+  border-color: #F37021; /* <-- Viền cũng màu cam */
+  color: #ffffff; /* <-- Chữ màu trắng (để nổi bật trên nền cam) */
+}
+
+/* Nút active (chữ đỏ) */
+.thietke-btn-solid.active {
+  color: #d90000;
+  font-weight: bold;
+}
+
+/* CSS ẨN/HIỆN GALLERY (quan trọng) */
+.thietke-gallery-grid {
+  display: none; /* Ẩn tất cả gallery đi mặc định */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.thietke-gallery-grid.thietke-gallery-active {
+  display: grid; /* Chỉ gallery nào có class 'active' mới hiện */
+}
+
+/* === SỬA LỖI 3: Thêm "KHUNG" cho ảnh === */
+.thietke-gallery-item img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  /* Thêm bo góc và viền mỏng để ảnh đỡ rối */
+  border-radius: 8px;
+  border: 1px solid #4a5c70; /* Viền màu xám-xanh mỏng */
+}
+
+/* === HẾT SỬA LỖI 3 === */
+/* =========================================== */
+/* RESPONSIVE (CHO ĐIỆN THOẠI)           */
+/* =========================================== */
+@media (max-width: 768px) {
+  .thietke-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .thietke-title h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  .thietke-gallery-grid {
+    grid-template-columns: 1fr; /* 1 cột duy nhất */
+  }
+  .thietke-filter-buttons .thietke-btn {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+  }
+}
+/* =========================================== */
+/* CSS SECTION CHÍNH SÁCH - GIÁ BÁN (ĐÃ SỬA) */
+/* =========================================== */
+/* 1. Lớp bọc ngoài cùng (NỀN KEM NHẠT) */
+.chinhsach-giaban-section {
+  /* --- SỬA: Đổi nền trắng thành nền kem --- */
+  background-color: #fdfbf7;
+  padding: 60px 0;
+  font-family: Arial, sans-serif;
+  margin-top: 40px;
+}
+
+/* 2. Container (KHUNG TRẮNG BÊN TRONG) */
+.chinhsach-container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  /* --- SỬA: Đây là phần "ĐÓNG KHUNG" --- */
+  background-color: #ffffff; /* Nền trắng của khung */
+  padding: 40px; /* Đệm 40px ở BÊN TRONG khung */
+  border-radius: 8px; /* Bo góc 8px cho mềm mại */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Đổ bóng nhẹ */
+  /* --- Hết phần đóng khung --- */
+}
+
+/* 3. Tiêu đề (CHÍNH SÁCH BÁN HÀNG...) */
+.chinhsach-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #d90000; /* Màu đỏ */
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 0;
+  text-transform: uppercase;
+}
+
+/* 4. Danh sách chính sách (ul) */
+.chinhsach-policy-list {
+  list-style: none;
+  padding-left: 0;
+  max-width: 700px; /* Giới hạn độ rộng của list */
+  margin: 0 auto 30px auto;
+  font-size: 16px;
+  color: #333;
+}
+
+/* 5. Từng mục chính sách (li) */
+.chinhsach-policy-list li {
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+/* 6. Dấu * hoa thị màu cam */
+.chinhsach-policy-list li::before {
+  content: "* ";
+  color: #F37021; /* Màu cam */
+  font-weight: bold;
+  margin-right: 5px;
+  font-size: 1.2em;
+}
+
+/* 7. Nhóm nút bấm */
+.chinhsach-button-group {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+/* 8. Kiểu nút bấm */
+.chinhsach-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  margin: 5px 10px;
+  background-color: #1a2b40;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 2px solid #1a2b40;
+  transition: all 0.3s ease;
+}
+
+/* 9. Hiệu ứng hover cho nút */
+.chinhsach-btn:hover {
+  background-color: #ffffff;
+  color: #1a2b40;
+}
+
+/* 10. Lưới 2 cột cho Tiến độ thanh toán */
+.chinhsach-tiendo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 40px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* 11. Danh sách tiến độ (ul) */
+.chinhsach-tiendo-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+/* 12. Từng mục tiến độ (li) */
+.chinhsach-tiendo-list li {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+/* 13. Chữ "Đặt cọc", "Đợt 1" in đậm */
+.chinhsach-tiendo-list li strong {
+  color: #000000;
+}
+
+/* =========================================== */
+/* RESPONSIVE (CHO ĐIỆN THOẠI)           */
+/* =========================================== */
+@media (max-width: 768px) {
+  /* Sửa padding cho khung trên điện thoại */
+  .chinhsach-container {
+    padding: 25px;
+  }
+  .chinhsach-title {
+    font-size: 24px;
+  }
+  .chinhsach-tiendo-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .chinhsach-tiendo-list:last-child {
+    margin-top: 20px;
+  }
+  .chinhsach-btn {
+    display: block;
+    width: 90%;
+    margin: 10px auto;
+  }
+}
+/* =========================================== */
+/* CSS SECTION TIẾN ĐỘ                      */
+/* =========================================== */
+/* 1. Lớp bọc ngoài cùng (Nền kem nhạt) */
+.tiendo-section {
+  margin-top: 50px;
+  background-color: #fdfbf7; /* Nền kem */
+  padding: 60px 0;
+  font-family: Arial, sans-serif;
+}
+
+/* 2. Container (căn giữa nội dung) */
+.tiendo-container {
+  width: 90%;
+  max-width: 1200px; /* Giới hạn độ rộng nội dung */
+  margin: 0 auto;
+}
+
+/* 3. Tiêu đề "TIẾN ĐỘ DỰ ÁN" */
+.tiendo-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #d90000; /* Màu đỏ */
+  text-align: center;
+  margin-bottom: 40px; /* Khoảng cách với lưới ảnh */
+  margin-top: 0;
+  text-transform: uppercase;
+}
+
+/* 4. Lưới 4 ô (Grid) */
+.tiendo-image-grid {
+  display: grid;
+  /* --- SỬA Ở ĐÂY --- */
+  /* Chia làm 2 cột bằng nhau (sẽ tự động xuống 2 hàng) */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px; /* Khoảng cách giữa các ô */
+}
+
+/* 5. Từng ô ảnh (Item) */
+.tiendo-grid-item {
+  background-color: #ffffff; /* Nền trắng cho từng ô */
+  border-radius: 8px; /* Bo góc 8px */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Đổ bóng nhẹ */
+  overflow: hidden; /* Ẩn phần ảnh thừa khi bo góc */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 6. Hiệu ứng khi hover vào ô ảnh */
+.tiendo-grid-item:hover {
+  transform: translateY(-5px); /* Nhấc nhẹ lên */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12); /* Đổ bóng rõ hơn */
+}
+
+/* 7. Hình ảnh bên trong ô */
+.tiendo-grid-item img {
+  width: 100%; /* Ảnh lấp đầy 100% chiều rộng của ô */
+  height: 100%; /* Ảnh lấp đầy 100% chiều cao của ô */
+  object-fit: cover; /* Giữ tỷ lệ ảnh, cắt bớt phần thừa */
+  display: block; /* Xóa khoảng trắng thừa bên dưới ảnh */
+}
+
+/* =========================================== */
+/* RESPONSIVE (CHO ĐIỆN THOẠI)           */
+/* =========================================== */
+@media (max-width: 992px) {
+  /* Cho máy tính bảng: 2 cột */
+  .tiendo-image-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 576px) {
+  /* Cho điện thoại: 1 cột */
+  .tiendo-image-grid {
+    grid-template-columns: 1fr;
+  }
+  .tiendo-title {
+    font-size: 24px;
+  }
+}
+/* =========================================== */
+/* CSS CHO CÁC KHỐI LIÊN HỆ CỐ ĐỊNH       */
+/* =========================================== */
+/* --- KHỐI BÊN TRÁI: ICON ZALO/PHONE --- */
+.lienhe-icons-trai {
+  position: fixed;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 998;
+}
+
+.lienhe-icons-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  /* Hiệu ứng nhấp nháy (tôi giữ tên animation chung) */
+  animation: pulse-animation 1.5s infinite ease-in-out;
+}
+
+/* Nút điện thoại màu đỏ */
+.lienhe-phone-icon {
+  background-color: #d90000;
+}
+
+.lienhe-phone-icon i {
+  color: white;
+  font-size: 24px;
+}
+
+/* Nút Zalo màu xanh */
+.lienhe-zalo-icon {
+  background-color: #0068ff;
+  animation-delay: 0.5s;
+}
+
+.lienhe-zalo-icon img {
+  width: 35px;
+  height: auto;
+}
+
+/* Hiệu ứng nhấp nháy (Giữ nguyên) */
+@keyframes pulse-animation {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+}
+/* --- KHỐI BÊN PHẢI: FORM LIÊN HỆ (ĐÃ THU NHỎ) --- */
+.formlienhe-container {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 998;
+  background-color: #d4c090; /* Nền màu beige */
+  /* === SỬA: Giảm padding một chút === */
+  padding: 20px 15px;
+  border-radius: 8px 0 0 8px;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+  /* === SỬA: GIẢM WIDTH XUỐNG === */
+  width: 220px;
+  background: url("../img/3nen.jpg") center/cover no-repeat;
+}
+
+/* Tiêu đề "Đăng ký..." */
+.formlienhe-title-small {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 14px; /* Giảm */
+  color: #1a2b40;
+  text-align: center;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* Tiêu đề "Luxora Vĩnh Yên" */
+.formlienhe-title-large {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 24px; /* Giảm */
+  font-weight: bold;
+  color: #1a2b40;
+  text-align: center;
+  margin: 4px 0 12px 0; /* Giảm */
+}
+
+/* Form dọc */
+.formlienhe-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.formlienhe-form label {
+  font-size: 12px; /* Giảm */
+  color: #333;
+  margin-bottom: 3px;
+  font-weight: 600;
+}
+
+/* Ô nhập (Họ tên, SĐT) */
+.formlienhe-input,
+.formlienhe-textarea {
+  width: 100%;
+  padding: 8px; /* Giảm */
+  margin-bottom: 10px; /* Giảm */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 13px; /* Giảm */
+}
+
+.formlienhe-textarea {
+  height: 60px; /* Giảm */
+  resize: vertical;
+}
+
+/* Nút "Gửi yêu cầu" */
+.formlienhe-submit-btn {
+  background-color: #2c5a8a;
+  color: white;
+  padding: 10px; /* Giảm */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px; /* Giảm */
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+.formlienhe-submit-btn:hover {
+  background-color: #1a2b40;
+}
+
+/* Chữ cam kết */
+.formlienhe-commit {
+  font-size: 11px; /* Giảm */
+  font-style: italic;
+  color: #333;
+  text-align: center;
+  margin-top: 10px; /* Giảm */
+  margin-bottom: 0;
+}
+
+/* === REPONSIVE (VẪN GIỮ NGUYÊN) === */
+@media (max-width: 1400px) {
+  .formlienhe-container {
+    display: none;
+  }
+  .lienhe-icons-trai {
+    display: none;
+  }
+}
+/* 1. Lớp phủ (backdrop) làm tối nền */
+#popup-overlay {
+  /* Ẩn theo mặc định, JS sẽ điều khiển */
+  display: none;
+  position: fixed;
+  /* Hiển thị đè lên toàn màn hình */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Màu đen mờ */
+  z-index: 1000;
+  /* Sử dụng Flexbox để căn giữa form */
+  justify-content: center;
+  align-items: center;
+}
+
+/* 2. Form container (giống hình ảnh) */
+#popup-form-container {
+  background-color: #ede0c8; /* Màu nền be */
+  padding: 25px 30px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 450px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  background: url("../img/3nen.jpg") center/cover no-repeat;
+  font-family: "Times New Roman", Times, serif; /* Font giống ảnh */
+  position: relative; /* Để chứa nút đóng */
+}
+
+/* 3. Nút đóng (X) */
+#close-popup-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #888;
+  cursor: pointer;
+  line-height: 1;
+}
+
+#close-popup-btn:hover {
+  color: #000;
+}
+
+/* 4. Tiêu đề form */
+#popup-form-container h2 {
+  font-size: 1.5em; /* ĐĂNG KÝ NHẬN THÔNG TIN */
+  color: #333;
+  margin-top: 0;
+  text-align: left;
+  font-weight: 500;
+}
+
+#popup-form-container h3 {
+  font-size: 2.2em; /* Luxora Vĩnh Yên */
+  font-weight: bold;
+  color: #3b506e; /* Màu xanh đậm */
+  text-align: left;
+  margin-top: -15px;
+  margin-bottom: 25px;
+}
+
+/* 5. Các trường input */
+#popup-form .form-group {
+  margin-bottom: 15px;
+}
+
+#popup-form .form-group label {
+  font-size: 1.1em;
+  color: #333;
+  margin-bottom: 5px;
+  display: block;
+}
+
+#popup-form .form-group input,
+#popup-form .form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 1em;
+}
+
+#popup-form .form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* 6. Nút Gửi */
+#popup-form button {
+  width: 100%;
+  background-color: #3a5d8a; /* Màu xanh của nút */
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+#popup-form button:hover {
+  background-color: #2c4a70;
+}
+
+/* 7. Dòng cam kết */
+#popup-form .cam-ket {
+  text-align: center;
+  font-style: italic;
+  color: #555;
+  font-size: 0.9em;
+  margin-top: 10px;
+}
+
+/* 8. Lớp 'show' này sẽ được JS thêm/xóa */
+#popup-overlay.show {
+  display: flex;
+}
+
+.card-courses-item {
+  margin-top: 16px;
+}
+
+/* ================================================
+ * SỬA LỖI: TẠO KHÔNG GIAN CHO FORM Ở TRANG CON
+ * ================================================ */
+/* * Chỉ áp dụng cho màn hình lớn 
+ * (nơi form và icon đang hiển thị) 
+ */
+
+/*# sourceMappingURL=app.css.map */

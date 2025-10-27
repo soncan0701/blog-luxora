@@ -1,0 +1,149 @@
+/* =========================================== */
+/* CSS SECTION CHÍNH SÁCH - GIÁ BÁN (ĐÃ SỬA) */
+/* =========================================== */
+
+/* 1. Lớp bọc ngoài cùng (NỀN KEM NHẠT) */
+.chinhsach-giaban-section {
+    /* --- SỬA: Đổi nền trắng thành nền kem --- */
+    background-color: #fdfbf7; 
+    padding: 60px 0;
+    font-family: Arial, sans-serif;
+    margin-top: 40px;
+}
+
+/* 2. Container (KHUNG TRẮNG BÊN TRONG) */
+.chinhsach-container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    
+    /* --- SỬA: Đây là phần "ĐÓNG KHUNG" --- */
+    background-color: #ffffff;      /* Nền trắng của khung */
+    padding: 40px;                /* Đệm 40px ở BÊN TRONG khung */
+    border-radius: 8px;           /* Bo góc 8px cho mềm mại */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Đổ bóng nhẹ */
+    /* --- Hết phần đóng khung --- */
+}
+
+/* 3. Tiêu đề (CHÍNH SÁCH BÁN HÀNG...) */
+.chinhsach-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #d90000; /* Màu đỏ */
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 0;
+    text-transform: uppercase;
+}
+
+/* 4. Danh sách chính sách (ul) */
+.chinhsach-policy-list {
+    list-style: none;
+    padding-left: 0;
+    max-width: 700px; /* Giới hạn độ rộng của list */
+    margin: 0 auto 30px auto;
+    font-size: 16px;
+    color: #333;
+}
+
+/* 5. Từng mục chính sách (li) */
+.chinhsach-policy-list li {
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+/* 6. Dấu * hoa thị màu cam */
+.chinhsach-policy-list li::before {
+    content: '* ';
+    color: #F37021; /* Màu cam */
+    font-weight: bold;
+    margin-right: 5px;
+    font-size: 1.2em;
+}
+
+/* 7. Nhóm nút bấm */
+.chinhsach-button-group {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/* 8. Kiểu nút bấm */
+.chinhsach-btn {
+    display: inline-block;
+    padding: 12px 28px;
+    margin: 5px 10px;
+    background-color: #1a2b40;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 2px solid #1a2b40;
+    transition: all 0.3s ease;
+}
+
+/* 9. Hiệu ứng hover cho nút */
+.chinhsach-btn:hover {
+    background-color: #ffffff;
+    color: #1a2b40;
+}
+
+/* 10. Lưới 2 cột cho Tiến độ thanh toán */
+.chinhsach-tiendo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* 11. Danh sách tiến độ (ul) */
+.chinhsach-tiendo-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+/* 12. Từng mục tiến độ (li) */
+.chinhsach-tiendo-list li {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+/* 13. Chữ "Đặt cọc", "Đợt 1" in đậm */
+.chinhsach-tiendo-list li strong {
+    color: #000000;
+}
+
+/* =========================================== */
+/* RESPONSIVE (CHO ĐIỆN THOẠI)           */
+/* =========================================== */
+
+@media (max-width: 768px) {
+    /* Sửa padding cho khung trên điện thoại */
+    .chinhsach-container {
+        padding: 25px;
+    }
+
+    .chinhsach-title {
+        font-size: 24px;
+    }
+
+    .chinhsach-tiendo-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .chinhsach-tiendo-list:last-child {
+        margin-top: 20px;
+    }
+
+    .chinhsach-btn {
+        display: block;
+        width: 90%;
+        margin: 10px auto;
+    }
+}

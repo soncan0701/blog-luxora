@@ -1,0 +1,132 @@
+/* ==== RESET ==== */
+// * {
+//   margin: 0;
+//   padding: 0;
+//   box-sizing: border-box;
+//   font-family: "Segoe UI", sans-serif;
+// }
+
+
+
+/* ==== HEADER ==== */
+.header {
+  height: 100vh;
+  background: url('../img/2nen.jpg') center/cover no-repeat;
+  filter: brightness(1.25); /* 1.0 là gốc, tăng lên sáng hơn */
+  z-index: 999;
+}
+
+
+
+/* lớp phủ nhẹ giúp chữ trắng nổi bật */
+.header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.15), rgba(0,0,0,0.3));
+  z-index: 0;
+}
+
+/* ==== NAVBAR ==== */
+.custom-navbar {
+  background: transparent !important;
+  transition: all 0.4s ease;
+  padding: 18px 80px;
+  position: fixed;      /* 👈 cố định trên cùng */
+  top: 0;               /* 👈 canh sát đỉnh */
+  left: 0;
+  width: 100%;          /* 👈 chiếm toàn chiều ngang */
+  z-index: 1000;        /* 👈 nổi trên ảnh nền */
+}
+/* tạo đường kẻ mờ dưới hàng menu */
+.custom-navbar::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3); /* trắng mờ nhẹ */
+}
+
+
+/* chữ thương hiệu */
+.custom-navbar .navbar-brand {
+  color: #fff !important;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(255,255,255,0.25);
+}
+/* link menu */
+.custom-navbar .nav-link {
+  position: relative;
+  color: #fff !important;
+  font-weight: 700;
+  margin-left: 22px;
+  padding-bottom: 5px;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 6px rgba(0,0,0,0.4);
+}
+/* hover nổi bật */
+.custom-navbar .nav-link:hover {
+  color: #5f58ee !important;
+  transform: translateY(-2px);
+  text-shadow:
+    0 0 8px rgba(255, 126, 95, 0.8),
+    0 0 16px rgba(255, 126, 95, 0.4);
+}
+
+
+
+/* Khi cuộn xuống */
+.navbar.scrolled {
+  background: linear-gradient(to right, #fbd1b0, #f8b7a0, #eaa5a4) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.navbar.scrolled .navbar-brand,
+.navbar.scrolled .nav-link {
+  color: #222 !important;
+}
+
+.navbar.scrolled .nav-link:hover {
+  color: #e67e22 !important;
+}
+
+/* ==== RESPONSIVE ==== */
+@media (max-width: 992px) {
+  .custom-navbar {
+    padding: 10px 30px;
+  }
+  .navbar-collapse {
+    background: rgba(0, 0, 0, 0.85);
+    border-radius: 10px;
+    padding: 20px;
+  }
+  .nav-link {
+    color: #fff !important;
+  }
+}
+/* ================================================
+   SỬA LỖI CHO HEADER Ở CÁC TRANG CON
+================================================ */
+
+/* Mục tiêu: Tắt ảnh nền, chiều cao 100vh, và filter 
+  khi header có class .no-background (tức là ở trang Vị Trí)
+*/
+.header.no-background {
+    height: auto; /* Quan trọng: Reset chiều cao 100vh về tự động */
+    background: none; /* Quan trọng: Tắt ảnh nền */
+    filter: none; /* Tắt hiệu ứng filter */
+}
+
+/* Tắt luôn lớp phủ màu đen (::before) */
+.header.no-background::before {
+    display: none;
+}
+
+/* Khi ở trang con, .header sẽ không có ảnh nền, 
+  nhưng .navbar bên trong nó (nhờ class .scrolled) 
+  sẽ có nền gradient, đúng như ý bạn muốn.
+*/

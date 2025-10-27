@@ -1,0 +1,90 @@
+/* ---- CSS CHO PHẦN VỊ TRÍ (BỐ CỤC DỌC) ---- */
+
+/* 1. Container chính (Tạo khoảng trắng 2 bên) */
+.location-section {
+    max-width: 1200px; 
+    margin: 0 auto;
+    
+    /* Giữ padding-top để không bị header che */
+    padding: 110px 15px 60px 15px; 
+
+    /* XÓA BỎ: display: flex, align-items, gap */
+    /* Các khối con sẽ tự động xếp dọc */
+}
+
+/* 2. Khối nội dung BÊN TRÊN (trước đây là bên trái) */
+.content-left {
+    /* XÓA BỎ: flex: 1 */
+
+    /* CĂN GIỮA KHỐI CHỮ CHO ĐẸP */
+    text-align: center; /* Căn giữa các tiêu đề và đoạn văn */
+    
+    /* Giới hạn độ rộng của chữ để dễ đọc */
+    max-width: 800px; 
+    margin-left: auto;
+    margin-right: auto;
+
+    /* Tạo khoảng cách với ảnh bên dưới */
+    margin-bottom: 50px; 
+}
+
+/* 3. Khối hình ảnh BÊN DƯỚI (trước đây là bên phải) */
+.image-right {
+    /* XÓA BỎ: flex: 1 */
+    /* Không cần CSS gì cả, nó sẽ tự rộng 100% */
+}
+
+/* 4. CSS cho ảnh (Giữ nguyên hiệu ứng mờ viền) */
+.map-image {
+    width: 100%;    /* Ảnh sẽ rộng 100% (của 1200px) */
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+    /* Giữ nguyên hiệu ứng mờ viền (dùng bản tương thích tốt) */
+    -webkit-mask-image: radial-gradient(circle at center, black 70%, transparent 100%);
+    mask-image: radial-gradient(circle at center, black 70%, transparent 100%);
+}
+
+/* 5. CSS cho phần chữ (Giữ nguyên) */
+.heading-diamond {
+    font-size: 38px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.heading-subtitle {
+    font-size: 20px;
+    font-style: italic;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.description {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #666;
+    text-align: justify; /* Căn đều 2 lề cho đoạn văn dài sẽ đẹp hơn */
+    /* Hoặc bạn có thể để 'text-align: center' nếu thích */
+}
+
+/* === 6. CHO ĐIỆN THOẠI (Responsive) === */
+@media (max-width: 768px) {
+    .location-section {
+        padding-top: 100px; /* Giảm padding trên mobile */
+    }
+
+    .content-left {
+        margin-bottom: 30px; /* Giảm khoảng cách giữa chữ và ảnh */
+    }
+
+    .heading-diamond {
+        font-size: 30px;
+    }
+
+    .heading-subtitle {
+        font-size: 18px;
+    }
+}

@@ -1,0 +1,176 @@
+/* =========================================== */
+/* CSS CHO CÁC KHỐI LIÊN HỆ CỐ ĐỊNH       */
+/* =========================================== */
+
+/* --- KHỐI BÊN TRÁI: ICON ZALO/PHONE --- */
+
+.lienhe-icons-trai {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 998; 
+}
+
+.lienhe-icons-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    
+    /* Hiệu ứng nhấp nháy (tôi giữ tên animation chung) */
+    animation: pulse-animation 1.5s infinite ease-in-out;
+}
+
+/* Nút điện thoại màu đỏ */
+.lienhe-phone-icon {
+    background-color: #d90000;
+}
+.lienhe-phone-icon i {
+    color: white;
+    font-size: 24px;
+}
+
+/* Nút Zalo màu xanh */
+.lienhe-zalo-icon {
+    background-color: #0068ff;
+    animation-delay: 0.5s;
+}
+.lienhe-zalo-icon img {
+    width: 35px;
+    height: auto;
+}
+
+/* Hiệu ứng nhấp nháy (Giữ nguyên) */
+@keyframes pulse-animation {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* --- KHỐI BÊN PHẢI: FORM LIÊN HỆ (ĐÃ THU NHỎ) --- */
+
+.formlienhe-container {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 998;
+    
+    background-color: #d4c090; /* Nền màu beige */
+    
+    /* === SỬA: Giảm padding một chút === */
+    padding: 20px 15px; 
+    
+    border-radius: 8px 0 0 8px;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+    
+    /* === SỬA: GIẢM WIDTH XUỐNG === */
+    width: 220px; 
+    background: url('../img/3nen.jpg') center/cover no-repeat;
+}
+
+/* Tiêu đề "Đăng ký..." */
+.formlienhe-title-small {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14px; /* Giảm */
+    color: #1a2b40; 
+    text-align: center;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+/* Tiêu đề "Luxora Vĩnh Yên" */
+.formlienhe-title-large {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 24px; /* Giảm */
+    font-weight: bold;
+    color: #1a2b40;
+    text-align: center;
+    margin: 4px 0 12px 0; /* Giảm */
+}
+
+/* Form dọc */
+.formlienhe-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.formlienhe-form label {
+    font-size: 12px; /* Giảm */
+    color: #333;
+    margin-bottom: 3px;
+    font-weight: 600;
+}
+
+/* Ô nhập (Họ tên, SĐT) */
+.formlienhe-input,
+.formlienhe-textarea {
+    width: 100%;
+    padding: 8px; /* Giảm */
+    margin-bottom: 10px; /* Giảm */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; 
+    font-size: 13px; /* Giảm */
+}
+
+.formlienhe-textarea {
+    height: 60px; /* Giảm */
+    resize: vertical;
+}
+
+/* Nút "Gửi yêu cầu" */
+.formlienhe-submit-btn {
+    background-color: #2c5a8a;
+    color: white;
+    padding: 10px; /* Giảm */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px; /* Giảm */
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.formlienhe-submit-btn:hover {
+    background-color: #1a2b40;
+}
+
+/* Chữ cam kết */
+.formlienhe-commit {
+    font-size: 11px; /* Giảm */
+    font-style: italic;
+    color: #333;
+    text-align: center;
+    margin-top: 10px; /* Giảm */
+    margin-bottom: 0;
+}
+
+
+/* === REPONSIVE (VẪN GIỮ NGUYÊN) === */
+@media (max-width: 1400px) {
+    .formlienhe-container {
+        display: none;
+    }
+    .lienhe-icons-trai {
+        display: none;
+    }
+}

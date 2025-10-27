@@ -1,0 +1,43 @@
+@import 'variables';
+@import 'components/header';
+@import 'components/footer';
+@import 'components/body';
+@import 'components/trangchu';
+@import 'components/map';
+@import 'components/matbang';
+@import 'components/tienich';
+@import 'components/giaban';
+@import 'components/tiendo';
+@import 'components/lienhe';
+@import 'components/_lienhe-fixed';
+@import 'components/_popup';
+
+// (sau này bạn có thể thêm các phần khác như header, button, layout...)
+
+.card-courses-item {
+    margin-top: 16px;
+}
+/* ================================================
+ * SỬA LỖI: TẠO KHÔNG GIAN CHO FORM Ở TRANG CON
+ * ================================================ */
+
+/* * Chỉ áp dụng cho màn hình lớn 
+ * (nơi form và icon đang hiển thị) 
+ */
+// @media (min-width: 1401px) {
+
+//     /* * Chỉ áp dụng cho body KHI CÓ class .subpage-layout
+//      * (tức là CHỈ ở trang con, KHÔNG phải trang chủ)
+//      */
+//     body.subpage-layout {
+        
+//         /* * Đẩy toàn bộ nội dung (footer, section...)
+//          * sang trái để "né" form
+//          * 270px (form) + 30px (khoảng cách) = 300px
+//          */
+//         padding-right: 100px !important;
+        
+//         /* Đảm bảo padding không làm vỡ layout */
+//         box-sizing: border-box !important;
+//     }
+// }

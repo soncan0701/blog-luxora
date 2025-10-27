@@ -1,0 +1,82 @@
+/* =========================================== */
+/* CSS SECTION TIẾN ĐỘ                      */
+/* =========================================== */
+
+/* 1. Lớp bọc ngoài cùng (Nền kem nhạt) */
+.tiendo-section {
+    margin-top: 50px;
+    background-color: #fdfbf7; /* Nền kem */
+    padding: 60px 0;
+    font-family: Arial, sans-serif;
+}
+
+/* 2. Container (căn giữa nội dung) */
+.tiendo-container {
+    width: 90%;
+    max-width: 1200px; /* Giới hạn độ rộng nội dung */
+    margin: 0 auto;
+}
+
+/* 3. Tiêu đề "TIẾN ĐỘ DỰ ÁN" */
+.tiendo-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #d90000; /* Màu đỏ */
+    text-align: center;
+    margin-bottom: 40px; /* Khoảng cách với lưới ảnh */
+    margin-top: 0;
+    text-transform: uppercase;
+}
+
+/* 4. Lưới 4 ô (Grid) */
+.tiendo-image-grid {
+    display: grid;
+    /* --- SỬA Ở ĐÂY --- */
+    /* Chia làm 2 cột bằng nhau (sẽ tự động xuống 2 hàng) */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 30px; /* Khoảng cách giữa các ô */
+}
+/* 5. Từng ô ảnh (Item) */
+.tiendo-grid-item {
+    background-color: #ffffff; /* Nền trắng cho từng ô */
+    border-radius: 8px;        /* Bo góc 8px */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Đổ bóng nhẹ */
+    overflow: hidden;          /* Ẩn phần ảnh thừa khi bo góc */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 6. Hiệu ứng khi hover vào ô ảnh */
+.tiendo-grid-item:hover {
+    transform: translateY(-5px); /* Nhấc nhẹ lên */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12); /* Đổ bóng rõ hơn */
+}
+
+/* 7. Hình ảnh bên trong ô */
+.tiendo-grid-item img {
+    width: 100%;  /* Ảnh lấp đầy 100% chiều rộng của ô */
+    height: 100%; /* Ảnh lấp đầy 100% chiều cao của ô */
+    object-fit: cover; /* Giữ tỷ lệ ảnh, cắt bớt phần thừa */
+    display: block;    /* Xóa khoảng trắng thừa bên dưới ảnh */
+}
+
+/* =========================================== */
+/* RESPONSIVE (CHO ĐIỆN THOẠI)           */
+/* =========================================== */
+
+@media (max-width: 992px) {
+    /* Cho máy tính bảng: 2 cột */
+    .tiendo-image-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    /* Cho điện thoại: 1 cột */
+    .tiendo-image-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tiendo-title {
+        font-size: 24px;
+    }
+}

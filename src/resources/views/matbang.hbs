@@ -1,0 +1,90 @@
+<section class="matbang-page-content">
+
+    <div class="container">
+        <header class="project-header">
+            <div class="title-section">
+                <h1>Mặt bằng</h1>
+                <h2>Tổng thể dự án</h2>
+            </div>
+            <div class="description-section">
+                <p>
+                    <strong>Chung cư Luxora Vĩnh Yên</strong> là sự kết hợp của những không gian hiện đại với thiết kế tinh tế ẩn tượng trong từng đường nét. Đây sẽ là biểu tượng của toàn bộ dự án. Với đội ngũ thiết kế là các chuyên gia hàng đầu trong lĩnh vực. Sáng tạo cùng sự tinh tế, khoa học gắn kết với Văn hóa của địa phương, <strong>dự án Luxora Vĩnh Yên</strong> sẵn sàng cho việc đón tổ <strong>"Đón đại bàng"</strong>.
+                </p>
+            </div>
+        </header>
+
+        <nav class="tabs-section">
+            <button class="tab-button active " data-tab-target="#tang-6-23">MẶT BẰNG TẦNG 6 - 23</button>
+            <button class="tab-button" data-tab-target="#tien-ich">MẶT BẰNG TIỆN ÍCH CÁC TẦNG</button>
+            <button class="tab-button" data-tab-target="#penhouse-1">MẶT BẰNG PENHOUSE 1</button>
+            <button class="tab-button" data-tab-target="#penhouse-2">MẶT BẰNG PENHOUSE 2</button>
+        </nav>
+
+        <div class="tab-content-container">
+
+            <main class="floor-plan-image active" id="tang-6-23">
+                <img src="img/MATBANG/luxora-mb-tang-6-23-web.jpg" alt="Mặt bằng tầng 6-23">
+            </main>
+
+            <main class="floor-plan-image" id="tien-ich">
+                <h2>Mặt bằng tiện ích các tầng</h2>
+                <div class="image-grid">
+                    <img src="img/MATBANG/TIENICH1.jpg" alt="TIENICH">
+                    <img src="img/MATBANG/TIENICH2.jpg" alt="TIENICH">
+                    <img src="img/MATBANG/TIENICH3.jpg" alt="TIENICH">
+                    <img src="img/MATBANG/TIENICH4.jpg" alt="TIENICH">
+                </div>
+            </main>
+
+            <main class="floor-plan-image" id="penhouse-1">
+                <img src="img/MATBANG/luxora-mb-tang-25-penhouse-2.jpg" alt="TIENICH">
+            </main>
+
+            <main class="floor-plan-image" id="penhouse-2">
+                <img src="img/MATBANG/luxora-mb-tang-25-penhouse.jpg" alt="TIENICH">
+            </main>
+
+        </div>
+    </div>
+
+</section>
+<script>
+    // Chạy mã khi trang web đã tải xong
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        // 1. Lấy tất cả các nút bấm (tabs)
+        const tabs = document.querySelectorAll('.matbang-page-content .tab-button');
+        
+        // 2. Lấy tất cả các vùng nội dung (content panels)
+        const contents = document.querySelectorAll('.matbang-page-content .floor-plan-image');
+
+        // Thêm kiểm tra nếu không tìm thấy phần tử thì không chạy
+        if (tabs.length === 0 || contents.length === 0) {
+            return;
+        }
+
+        // 3. Lặp qua từng nút bấm để gán sự kiện click
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                
+                // Lấy ID của nội dung từ thuộc tính 'data-tab-target'
+                const targetId = tab.getAttribute('data-tab-target');
+                const targetContent = document.querySelector(targetId);
+
+                // 4. Xóa class 'active' khỏi TẤT CẢ các nút
+                tabs.forEach(t => t.classList.remove('active'));
+                
+                // 5. Thêm class 'active' vào nút VỪA ĐƯỢC CLICK
+                tab.classList.add('active');
+
+                // 6. Ẩn TẤT CẢ các nội dung
+                contents.forEach(content => content.classList.remove('active'));
+
+                // 7. Hiển thị nội dung tương ứng với nút vừa click
+                if (targetContent) {
+                    targetContent.classList.add('active');
+                }
+            });
+        });
+    });
+</script>

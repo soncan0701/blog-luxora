@@ -1,0 +1,32 @@
+{{! File này chứa form bên phải và các icon liên hệ }}
+<div class="lienhe-icons-trai">
+    <a href="https://zalo.me/0975676534" class="lienhe-icons-btn lienhe-phone-icon" target="_blank">
+        <i class="fas fa-phone-alt"></i>
+    </a>
+    <a href="https://zalo.me/0975676534" target="_blank" class="lienhe-icons-btn lienhe-zalo-icon">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Icon_of_Zalo.svg/2048px-Icon_of_Zalo.svg.png" alt="Zalo">
+    </a>
+</div>
+
+<div class="formlienhe-container">
+    <h3 class="formlienhe-title-small">Đăng ký nhận thông tin</h3>
+    <h2 class="formlienhe-title-large">Luxora Vĩnh Yên</h2>
+    
+    {{! Form này đã sẵn sàng để được popup.js xử lý }}
+    <form class="formlienhe-form" id="side-form">
+        
+        <label for="lienhe_ho_va_ten">Họ và tên</label>
+        <input type="text" id="lienhe_ho_va_ten" name="hoTen" class="formlienhe-input" placeholder="Họ và tên của bạn" required>
+        
+        <label for="lienhe_so_dien_thoai">Số điện thoại (Zalo)</label>
+        <input type="tel" id="lienhe_so_dien_thoai" name="soDienThoai" class="formlienhe-input" placeholder="Số điện thoại (Zalo)" required>
+        
+        <label for="lienhe_noi_dung">Nội dung (tùy chọn)</label>
+        <textarea id="lienhe_noi_dung" name="noiDung" class="formlienhe-textarea" placeholder="Tôi muốn tư vấn về..."></textarea>
+        
+        <button type="submit" class="formlienhe-submit-btn">Gửi yêu cầu</button>
+    </form>
+
+    <p class="formlienhe-commit">*Cam kết bảo mật thông tin tuyệt đối!</p>
+</div>
+

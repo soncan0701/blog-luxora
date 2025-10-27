@@ -1,0 +1,161 @@
+/* =========================================== */
+/* CSS TRANG MẶT BẰNG (ĐÃ SCOPED)       */
+/* =========================================== */
+
+/* 1. Phần tử cha: Quyết định nền trắng và padding */
+.matbang-page-content {
+    background-color: #ffffff; /* <--- NỀN TRẮNG NẰM Ở ĐÂY */
+    color: #333;
+    padding: 200px 0 60px 0 !important;/* Padding trên/dưới */
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* 2. Container: Giờ chỉ lo căn lề */
+/* (Nó sẽ không đè lên container chung của bạn nữa) */
+.matbang-page-content .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* --- PHẦN 1: TIÊU ĐỀ VÀ MÔ TẢ --- */
+.matbang-page-content .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.matbang-page-content .title-section {
+    flex-basis: 30%;
+    min-width: 250px;
+    font-family: 'Times New Roman', Times, serif;
+    color: #a12a2a; /* Màu đỏ sậm */
+}
+
+.matbang-page-content .title-section h1 {
+    font-size: 48px;
+    font-weight: 500;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.matbang-page-content .title-section h2 {
+    font-size: 32px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.matbang-page-content .description-section {
+    flex-basis: 65%;
+    min-width: 300px;
+    font-size: 16px;
+    color: #222;
+}
+
+.matbang-page-content .description-section p {
+    margin-top: 0;
+}
+
+/* --- PHẦN 2: CÁC NÚT BẤM (TABS) --- */
+.matbang-page-content .tabs-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.matbang-page-content .tab-button {
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    background-color: #2E5A8A; /* Màu xanh dương */
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.matbang-page-content .tab-button:hover {
+    opacity: 0.9;
+}
+
+.matbang-page-content .tab-button.active {
+    background-color: #F37021; /* Màu cam */
+}
+
+/* --- PHẦN 3: NỘI DUNG TAB (ẢNH) --- */
+.matbang-page-content .floor-plan-image {
+    display: none; /* Ẩn tất cả mặc định */
+    width: 100%;
+}
+
+.matbang-page-content .floor-plan-image.active {
+    display: block; /* Chỉ hiện tab có class active */
+}
+
+.matbang-page-content .floor-plan-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid #eee;
+}
+
+/* Tiêu đề cho tab tiện ích (nếu có) */
+.matbang-page-content .floor-plan-image h2 {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Lưới ảnh 2x2 cho tab tiện ích */
+.matbang-page-content .image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 0 10px;
+}
+
+.matbang-page-content .image-grid img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* --- PHẦN 4: RESPONSIVE --- */
+@media (max-width: 768px) {
+    .matbang-page-content .project-header {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .matbang-page-content .title-section,
+    .matbang-page-content .description-section {
+        flex-basis: 100%;
+    }
+
+    .matbang-page-content .tabs-section {
+        flex-direction: column;
+    }
+
+    .matbang-page-content .tab-button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .matbang-page-content .image-grid {
+        grid-template-columns: 1fr; /* 1 cột trên điện thoại */
+        gap: 15px;
+    }
+}
