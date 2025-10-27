@@ -1,11 +1,11 @@
-const mongoose = require('mongoose');
+// Code mới, an toàn
+const MONGODB_URI = process.env.MONGODB_URI;
 
 async function connect() {
     try {
-        await mongoose.connect('mongodb+srv://sonthaingocnguyen1902_db_user:dEdALgYwBYdqPQzH@cluster0.lyg567q.mongodb.net/?appName=Cluster0');
-        console.log('Connect successfully');
+        await mongoose.connect(MONGODB_URI);
+        console.log('Connect to MongoDB Atlas successfully!');
     } catch (error) {
-        console.log('Connect fail');
+        console.log('Connect to MongoDB Atlas failure!', error);
     }
 }
-module.exports = { connect };
