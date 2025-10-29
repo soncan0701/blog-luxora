@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan');
 const methodOverride = require('method-override');
@@ -46,6 +47,7 @@ app.set('views', path.join(__dirname, 'resources', 'views')); //
 route(app);
 
 // Server
-app.listen(port, () => {
-    console.log(`App listening on port ${port}`);
+app.listen(PORT, () => {
+    // Dòng log này sẽ cho bạn biết nó đang chạy ở cổng nào
+    console.log(`App listening at port ${PORT}`); 
 });

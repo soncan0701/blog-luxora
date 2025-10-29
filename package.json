@@ -32,6 +32,7 @@
     "src/**/*.{js,json,scss}": "prettier --write --single-quote --trailing-comma all --tab-width 4"
   },
   "dependencies": {
+    "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "express-handlebars": "^8.0.3",
     "husky": "^9.1.7",

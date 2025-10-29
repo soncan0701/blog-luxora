@@ -1,11 +1,16 @@
-// Code mới, an toàn
-const MONGODB_URI = process.env.MONGODB_URI;
+const mongoose = require('mongoose');
+
+// Biến này sẽ được .env (local) hoặc Render (production) cung cấp
+const MONGODB_URI = process.env.MONGODB_URI; 
 
 async function connect() {
     try {
         await mongoose.connect(MONGODB_URI);
-        console.log('Connect to MongoDB Atlas successfully!');
+        // Log này sẽ cho bạn biết nó kết nối vào đâu
+        console.log('Connect to MongoDB successfully!'); 
     } catch (error) {
-        console.log('Connect to MongoDB Atlas failure!', error);
+        console.log('Connect to MongoDB failure!', error);
     }
 }
+
+module.exports = { connect };
