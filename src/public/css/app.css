@@ -147,7 +147,7 @@
 
 /* ===== TEXT & LINKS ===== */
 .footer_title {
-  font-size: 20px;
+  font-size: 50px;
   font-weight: 700;
   margin-bottom: 15px;
   text-transform: uppercase;
@@ -156,7 +156,7 @@
 
 .footer-inner p {
   line-height: 1.6;
-  font-size: 15px;
+  font-size: 20px;
   margin-bottom: 10px;
 }
 
